@@ -32,6 +32,19 @@ const connectToMongoDB = async () => {
     }
 }
 
+// Middleware function to handle CORS (Cross-Origin Resource Sharing) headers
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
+    if (req.method === 'OPTIONS') {
+        res.sendStatus(200);
+    } else {
+        next();
+    }
+});
+
 // Endpoint to handle POST requests to add a book
 app.post('/books', (req, res) => {
     const book = req.body;
