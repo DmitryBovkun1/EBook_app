@@ -22,7 +22,6 @@ function UpdateBook({ book, editingBooks, setEditingBooks, updateBook, toggleEdi
         type="text"
         value={editingBooks[book._id].title}
         onChange={(e) =>
-          // Update the author in the editingBooks state
           setEditingBooks((prevEditingBooks) => ({
             ...prevEditingBooks,
             [book._id]: {
