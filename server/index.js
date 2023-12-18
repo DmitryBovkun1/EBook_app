@@ -23,7 +23,7 @@ let db;
 const connectToMongoDB = async () => {
     try {
         // Connect to MongoDB server
-        const client = await MongoClient.connect('mongodb://127.0.0.1:27017/', { useUnifiedTopology: true });
+        const client = await MongoClient.connect('mongodb://mongodb:27017/', { useUnifiedTopology: true });
         console.log('Connected to MongoDB');
         // Set the 'db' variable to the database
         db = client.db('mybookdb');
